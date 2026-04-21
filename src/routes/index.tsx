@@ -11,17 +11,17 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Sidharth Varma Gurijala — React Native Developer" },
+      { title: "Sidharth Varma Gurijala — Software Engineer" },
       {
         name: "description",
         content:
-          "Production-grade mobile apps built from scratch. React Native specialist with shipped apps, real business impact, and end-to-end ownership.",
+          "Production-grade software built from scratch. Software engineer with 12 shipped projects, 7 production systems, and end-to-end ownership.",
       },
-      { property: "og:title", content: "Sidharth Varma Gurijala — React Native Developer" },
+      { property: "og:title", content: "Sidharth Varma Gurijala — Software Engineer" },
       {
         property: "og:description",
         content:
-          "I build production-grade mobile apps from scratch. 2 shipped apps, 3 production systems.",
+          "I build production-grade software from scratch. 12 shipped projects, 7 production systems.",
       },
     ],
   }),

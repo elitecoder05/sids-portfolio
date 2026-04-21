@@ -12,8 +12,8 @@ const experiences = [
     role: "Software Developer",
     company: "Mobizo",
     bullets: [
-      "Built and shipped 2 production mobile apps (iOS + Android) from scratch",
-      "Owned complete development lifecycle — architecture through app store deployment",
+      "Built and shipped 12 production projects (iOS + Android) from scratch",
+      "Owned complete development lifecycle — architecture through deployment",
       "Integrated complex API systems with performance-optimized data handling",
     ],
   },

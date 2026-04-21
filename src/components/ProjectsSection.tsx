@@ -1,17 +1,46 @@
+import mobizoImg1 from "../../mobizo.png";
+import mobizoImg2 from "../../mobizo2.png";
+import flitzyImg from "../../flitzy.png";
+import vignansImg from "../../vignans.png";
+import upcImg from "../../upc profiles.png";
+
 const projects = [
   {
     label: "Mobile Development",
-    title: "Mobizo — 2 Production Mobile Apps",
+    title: "Mobizo — 12 Shipped Projects",
     role: "Software Developer",
     description:
-      "Built 2 full-scale mobile applications for iOS and Android from the ground up. Owned the entire lifecycle — repository setup, architecture, development, testing, and deployment to app stores.",
+      "Built 12 full-scale projects from the ground up. Owned the entire lifecycle — repository setup, architecture, development, testing, and deployment.",
     highlights: [
       "Architected scalable app structure supporting complex business logic",
       "Integrated RESTful APIs with optimized data fetching and caching",
       "Managed full deployment pipeline for both iOS and Android",
       "Owned everything — not contributing to an existing codebase, building from zero",
     ],
-    tech: ["React Native", "TypeScript", "REST APIs", "iOS", "Android"],
+    tech: [
+      "React Native",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "iOS",
+      "Android",
+      "Node.js",
+      "Express",
+      "GraphQL",
+      "REST APIs",
+      "Postgres",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "CI/CD",
+      "AWS",
+      "Firebase",
+      "Testing (Jest / Detox)",
+      "State Management (Redux / Zustand)",
+      "ORM (Prisma / TypeORM)",
+    ],
+    images: [mobizoImg1, mobizoImg2],
   },
   {
     label: "Founding Engineer",
@@ -25,20 +54,56 @@ const projects = [
       "Collaborated on API contract design for optimal mobile performance",
       "Made critical early-stage engineering decisions that shaped the product",
     ],
-    tech: ["React Native", "JavaScript", "Node.js", "System Design"],
+    tech: [
+      "React Native",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Node.js",
+      "Express",
+      "Postgres",
+      "MongoDB",
+      "Redis",
+      "Docker",
+      "Kubernetes",
+      "GraphQL",
+      "REST APIs",
+      "AWS / GCP",
+      "Auth (OAuth / JWT)",
+      "CI/CD",
+      "Observability",
+      "Performance",
+    ],
+    images: [flitzyImg],
   },
   {
     label: "Client Work",
     title: "Vignan Institute of Information Technology",
     role: "Contract Developer",
     description:
-      "Delivered two production systems for an institutional client managing thousands of users — a mobile analytics app for administrators and a full-stack assessment platform.",
+      "Delivered production systems for an institutional client managing thousands of users — a mobile analytics app for administrators and a full-stack assessment platform.",
     highlights: [
       "Vignan Insights: Mobile app enabling administrators to analyze student feedback and make data-driven decisions",
       "Assessment Portal: Full-stack platform with online exams, anti-cheating measures, and auto-generated PDF performance reports",
       "Both systems deployed and actively used across the institution",
     ],
-    tech: ["React Native", "Node.js", "MongoDB", "Express", "PDF Generation"],
+    tech: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Postgres",
+      "Redis",
+      "Docker",
+      "Auth",
+      "PDF Generation (Puppeteer / PDFKit)",
+      "Accessibility",
+      "Testing",
+      "CI/CD",
+      "Security",
+    ],
+    images: [vignansImg],
   },
   {
     label: "Business Software",
@@ -52,7 +117,24 @@ const projects = [
       "Built for reliability — handles real money and business-critical workflows",
       "Ongoing maintenance and feature additions based on business needs",
     ],
-    tech: ["JavaScript", "Node.js", "MongoDB", "Business Logic"],
+    tech: [
+      "JavaScript",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Postgres",
+      "MySQL",
+      "MongoDB",
+      "SQL",
+      "Accounting Domain Logic",
+      "Payments",
+      "Reporting",
+      "PDF Generation",
+      "Docker",
+      "CI/CD",
+      "Unit & Integration Testing",
+    ],
+    images: [upcImg],
   },
 ];
 
@@ -65,6 +147,18 @@ export function ProjectsSection() {
         <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project) => (
             <article key={project.title} className="project-card flex flex-col">
+              {project.images && project.images.length > 0 && (
+                <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {project.images.map((img, idx) => (
+                    <img
+                      key={idx}
+                      src={img}
+                      alt={`${project.title} screenshot ${idx + 1}`}
+                      className="w-full h-40 object-cover rounded"
+                    />
+                  ))}
+                </div>
+              )}
               <span className="text-xs font-semibold uppercase tracking-widest text-accent mb-3">
                 {project.label}
               </span>
