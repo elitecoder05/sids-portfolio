@@ -148,14 +148,18 @@ export function ProjectsSection() {
           {projects.map((project) => (
             <article key={project.title} className="project-card flex flex-col">
               {project.images && project.images.length > 0 && (
-                <div className="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <div className="mb-4 w-full flex items-center justify-center gap-4">
                   {project.images.map((img, idx) => (
-                    <img
+                    <div
                       key={idx}
-                      src={img}
-                      alt={`${project.title} screenshot ${idx + 1}`}
-                      className="w-full h-40 object-cover rounded"
-                    />
+                      className="w-24 h-24 md:w-28 md:h-28 flex items-center justify-center bg-white border border-border rounded-lg overflow-hidden shadow-sm p-2"
+                    >
+                      <img
+                        src={img}
+                        alt={`${project.title} logo ${idx + 1}`}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
                   ))}
                 </div>
               )}

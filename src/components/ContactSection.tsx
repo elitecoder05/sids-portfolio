@@ -32,7 +32,7 @@ export function ContactSection() {
           </div>
           <div className="flex justify-center gap-6">
             <a
-              href="https://github.com/sidharthvarma"
+              href="https://github.com/elitecoder05"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary-foreground/50 hover:text-primary-foreground transition-colors"

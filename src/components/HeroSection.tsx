@@ -3,7 +3,7 @@ import heroImg from "../../photo.jpeg";
 export function HeroSection() {
   return (
     <section className="min-h-[90vh] flex items-center">
-      <div className="section-container w-full flex items-center gap-12">
+      <div className="section-container w-full flex items-center gap-8">
         <div className="max-w-3xl">
           <p className="section-label mb-4">Sidharth Varma Gurijala</p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground">
@@ -41,11 +41,11 @@ export function HeroSection() {
             </div>
           </div>
         </div>
-        <div className="hidden lg:block flex-1 max-w-[520px] flex items-center justify-center">
+        <div className="hidden lg:flex flex-1 items-center justify-center">
           <img
             src={heroImg}
             alt="Hero"
-            className="rounded-lg shadow-lg object-contain w-full h-auto max-h-[520px]"
+            className="rounded-lg shadow-lg object-cover w-[320px] md:w-[360px] h-[75vh]"
           />
         </div>
       </div>
