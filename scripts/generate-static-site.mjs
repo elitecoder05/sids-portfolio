@@ -1,4 +1,4 @@
-import { cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const rootDir = process.cwd();
@@ -19,12 +19,27 @@ async function main() {
     throw new Error("No JavaScript bundle found in dist/client/assets");
   }
 
+  const bootstrapFile = await findBootstrapFile(jsFiles, outputAssetsDir);
+
   const cssTags = cssFiles
     .map((file) => `    <link rel="stylesheet" href="/assets/${file}" />`)
     .join("\n");
-  const scriptTags = jsFiles
-    .map((file) => `    <script type="module" src="/assets/${file}"></script>`)
-    .join("\n");
+  const scriptTag = `    <script type="module" src="/assets/${bootstrapFile}"></script>`;
+
+  const tanstackBootstrap = `    <script>
+      window.$_TSR = window.$_TSR || {
+        initialized: true,
+        buffer: [],
+        t: new Map(),
+        h: function () {},
+        router: {
+          manifest: { routes: {} },
+          dehydratedData: null,
+          lastMatchId: null,
+          matches: []
+        }
+      };
+    </script>`;
 
   const html = `<!doctype html>
 <html lang="en">
@@ -36,13 +51,25 @@ ${cssTags}
   </head>
   <body>
     <div id="root"></div>
-${scriptTags}
+${tanstackBootstrap}
+${scriptTag}
   </body>
 </html>
 `;
 
   await writeFile(path.join(outputDir, "index.html"), html, "utf8");
   console.log("Prepared static output in _site/");
+}
+
+async function findBootstrapFile(jsFiles, assetsDir) {
+  for (const file of jsFiles) {
+    const code = await readFile(path.join(assetsDir, file), "utf8");
+    if (code.includes("hydrateRoot(")) {
+      return file;
+    }
+  }
+
+  return jsFiles[jsFiles.length - 1];
 }
 
 main().catch((error) => {

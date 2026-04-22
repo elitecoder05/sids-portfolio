@@ -8,7 +8,20 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      window.$_TSR = window.$_TSR || {
+        initialized: true,
+        buffer: [],
+        t: new Map(),
+        h: function () {},
+        router: {
+          manifest: { routes: {} },
+          dehydratedData: null,
+          lastMatchId: null,
+          matches: []
+        }
+      };
+    </script>
     <script type="module" src="/assets/index-BLtBKgVB.js"></script>
-    <script type="module" src="/assets/index-B_9ntLGd.js"></script>
   </body>
 </html>
